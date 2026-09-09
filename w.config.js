@@ -39,7 +39,7 @@ var loaders = [
     },
     {
       test: /\.(?:png|jpg|gif)$/,
-      loader: 'url?limit=8192', //小于8k,内嵌;大于8k生成文件
+      loader: 'file?name=[name].[ext]',
     },
     {
       test: /\.less/,
@@ -52,6 +52,12 @@ var devPlugins =  [
   new CopyWebpackPlugin([
     { from: './src/resource/music/music.mp3' },
     { from: './src/resource/css/loader.css' },
+    { from: './src/resource/pwa/manifest.json' },
+    { from: './src/resource/pwa/service-worker.js' },
+    { from: './src/resource/pwa/service-worker.js', to: 'sw.js' },
+    { from: './src/resource/pwa/icon-192.png' },
+    { from: './src/resource/pwa/icon-512.png' },
+    { from: './LICENSE' },
   ]),
   // 热更新
   new webpack.HotModuleReplacementPlugin(),
@@ -77,6 +83,12 @@ var productionPlugins = [
   new CopyWebpackPlugin([
     { from: './src/resource/music/music.mp3' },
     { from: './src/resource/css/loader.css' },
+    { from: './src/resource/pwa/manifest.json' },
+    { from: './src/resource/pwa/service-worker.js' },
+    { from: './src/resource/pwa/service-worker.js', to: 'sw.js' },
+    { from: './src/resource/pwa/icon-192.png' },
+    { from: './src/resource/pwa/icon-512.png' },
+    { from: './LICENSE' },
   ]),
   // HTML 模板
   new HtmlWebpackPlugin({

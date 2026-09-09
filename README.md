@@ -1,6 +1,15 @@
 ### English introduction
 Please view [README-EN.md](https://github.com/chvin/react-tetris/blob/master/README-EN.md)
 
+### Personal deployment adaptation
+This branch is a personal-use adaptation of Chvin's `react-tetris` and preserves the
+upstream project's authorship, retro interface, controls, gameplay, music, and artwork.
+It adds standards-based gamepad controls and installable/offline PWA packaging. The
+bundled assets remain from upstream; this note makes no separate claim about any
+third-party asset rights.
+
+For a reproducible local build, run `npm ci`, `npm test`, and `npm run build`.
+
 ----
 ## 用React、Redux、Immutable做俄罗斯方块
 
