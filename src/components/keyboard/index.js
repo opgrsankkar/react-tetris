@@ -4,7 +4,6 @@ import propTypes from 'prop-types';
 
 import style from './index.less';
 import Button from './button';
-import GamepadStatus from '../gamepad';
 import store from '../../store';
 import todo from '../../control/todo';
 import { i18n, lan } from '../../unit/const';
@@ -160,7 +159,6 @@ export default class Keyboard extends React.Component {
           active={keyboard.get('pause')}
           ref={(c) => { this.dom_p = c; }}
         />
-        <GamepadStatus />
       </div>
     );
   }
