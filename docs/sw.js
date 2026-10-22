@@ -1,4 +1,4 @@
-var CACHE_NAME = 'react-tetris-shell-v2';
+var CACHE_NAME = 'react-tetris-shell-v3';
 var CACHE_PREFIX = 'react-tetris-shell-';
 var LEGACY_CACHE_PREFIX = 'tetris-v';
 var STATIC_ASSETS = [
