@@ -100,9 +100,17 @@ const getParam = (param) => { // 获取浏览器参数
 };
 
 const lan = (() => {
-  let l = getParam('lan').toLowerCase();
-  l = i18n.lan.indexOf(l) === -1 ? i18n.default : l;
-  return l;
+  // ?lan= wins; otherwise follow the browser's language when supported (zh-* maps to cn).
+  const supported = l => i18n.lan.indexOf(l) !== -1;
+  const param = getParam('lan').toLowerCase();
+  if (supported(param)) return param;
+  const languages = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
+  for (let i = 0; i < languages.length; i++) {
+    const code = String(languages[i]).toLowerCase().split('-')[0];
+    const l = code === 'zh' ? 'cn' : code;
+    if (supported(l)) return l;
+  }
+  return i18n.default;
 })();
 
 document.title = i18n.data.title[lan];
